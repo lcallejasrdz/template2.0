@@ -185,6 +185,11 @@ return [
          */
         Yajra\Datatables\DatatablesServiceProvider::class,
 
+        /*
+         * Laravel Collective Providers...
+         */
+        Collective\Html\HtmlServiceProvider::class,
+
     ],
 
     /*
@@ -247,6 +252,12 @@ return [
          * Datatables Aliases...
          */
         'Datatables' => Yajra\Datatables\Facades\Datatables::class,
+
+        /*
+         * Laravel Collective Aliases...
+         */
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
 
     ],
 

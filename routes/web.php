@@ -15,6 +15,25 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+/*
+ * Auth
+ */
+Route::group(array('middleware' => 'guest'), function () {
+    // Login
+	Route::get('login', 'AuthController@getLogin')->name('login');
+	Route::post('login', 'AuthController@postLogin')->name('login');
+
+    // Recover password
+    Route::get('forgot-password',array('as' => 'forgot-password','uses' => 'AuthController@getForgotPassword'));
+    // Route::post('forgot-password','AuthController@postForgotPassword');
+    // Route::get('forgot-password/{userId}/{passwordResetCode}', array('as' => 'forgot-password-confirm', 'uses' => 'AuthController@getForgotPasswordConfirm'));
+    // Route::post('forgot-password/{userId}/{passwordResetCode}', 'AuthController@postForgotPasswordConfirm');
+});
+
+Route::group(array('middleware' => 'sentinelAuth'), function () {
+    Route::get('logout', 'AuthController@logout')->name('logout');
+
+    Route::get('/home', 'HomeController@index')->name('home');
+});

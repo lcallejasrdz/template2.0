@@ -6,21 +6,20 @@ use Closure;
 use Sentinel;
 use Redirect;
 
-class RedirectIfAuthenticated
+class SentinelAuth
 {
     /**
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
-     * @param  string|null  $guard
      * @return mixed
      */
-    public function handle($request, Closure $next, $guard = null)
+    public function handle($request, Closure $next)
     {
-        if (Sentinel::guest())
-            return $next($request);
+        if(!Sentinel::check())
+            return Redirect::to('login');
         else
-            return redirect('/home');
+            return $next($request);
     }
 }
