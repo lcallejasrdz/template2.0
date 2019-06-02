@@ -180,6 +180,11 @@ return [
          */
         Cartalyst\Sentinel\Laravel\SentinelServiceProvider::class,
 
+        /*
+         * Datatables Providers...
+         */
+        Yajra\Datatables\DatatablesServiceProvider::class,
+
     ],
 
     /*
@@ -237,6 +242,11 @@ return [
         'Activation' => Cartalyst\Sentinel\Laravel\Facades\Activation::class,
         'Reminder'   => Cartalyst\Sentinel\Laravel\Facades\Reminder::class,
         'Sentinel'   => Cartalyst\Sentinel\Laravel\Facades\Sentinel::class,
+
+        /*
+         * Datatables Aliases...
+         */
+        'Datatables' => Yajra\Datatables\Facades\Datatables::class,
 
     ],
 
