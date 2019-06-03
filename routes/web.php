@@ -26,8 +26,8 @@ Route::group(array('middleware' => 'guest'), function () {
 	Route::post('login', 'AuthController@postLogin')->name('login');
 
     // Recover password
-    Route::get('forgot-password',array('as' => 'forgot-password','uses' => 'AuthController@getForgotPassword'));
-    // Route::post('forgot-password','AuthController@postForgotPassword');
+    Route::get('forgot-password', 'AuthController@getForgotPassword')->name('forgot-password');
+    Route::post('forgot-password', 'AuthController@postForgotPassword')->name('forgot-password');
     // Route::get('forgot-password/{userId}/{passwordResetCode}', array('as' => 'forgot-password-confirm', 'uses' => 'AuthController@getForgotPasswordConfirm'));
     // Route::post('forgot-password/{userId}/{passwordResetCode}', 'AuthController@postForgotPasswordConfirm');
 });

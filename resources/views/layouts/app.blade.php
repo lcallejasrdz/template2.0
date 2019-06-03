@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Naranja Dulce') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -41,7 +41,11 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                @if (Sentinel::check())
+                                    <a class="nav-link" href="{{ route('logout') }}" id="logout">{{ __('Logout') }}</a>
+                                @else
+                                    <a class="nav-link" href="{{ route('login') }}" id="login">{{ __('Login') }}</a>
+                                @endif
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">

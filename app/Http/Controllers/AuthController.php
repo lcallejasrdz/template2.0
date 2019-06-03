@@ -22,18 +22,37 @@ class AuthController extends Controller
         ];
 
         if(($request->remember && Sentinel::authenticateAndRemember($credentials)) || Sentinel::authenticate($credentials)){
-            return Redirect::route('home');
+            return Redirect::route('home')->with('success', 'Sesión iniciada correctamente');
         }else{
-            return Redirect::back();
+            return Redirect::back()->with('error', 'Usuario y/o contraseña incorrectos');
         }
     }
     
     public function logout()
     {
         if(Sentinel::logout()){
-            return Redirect::route('login');
+            return Redirect::route('login')->with('error', 'Sesión cerrada correctamente');
         }else{
             return Redirect::back();
+        }
+    }
+
+    public function getForgotPassword()
+    {
+        return view('auth.passwords.email');
+    }
+
+    public function postForgotPassword(Request $request)
+    {
+        $credentials = [
+            'email'    => $request->email,
+            'password' => $request->password,
+        ];
+
+        if(($request->remember && Sentinel::authenticateAndRemember($credentials)) || Sentinel::authenticate($credentials)){
+            return Redirect::route('home');
+        }else{
+            return Redirect::back()->with('error', 'Usuario y/o contraseña incorrectos');
         }
     }
 }
