@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Request\LoginRequest;
 
 use Sentinel;
 use Redirect;
@@ -14,7 +15,7 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
-    public function postLogin(Request $request)
+    public function postLogin(LoginRequest $request)
     {
         $credentials = [
             'email'    => $request->email,
