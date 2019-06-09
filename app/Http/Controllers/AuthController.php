@@ -44,15 +44,6 @@ class AuthController extends Controller
 
     public function postForgotPassword(Request $request)
     {
-        $credentials = [
-            'email'    => $request->email,
-            'password' => $request->password,
-        ];
-
-        if(($request->remember && Sentinel::authenticateAndRemember($credentials)) || Sentinel::authenticate($credentials)){
-            return Redirect::route('home');
-        }else{
-            return Redirect::back()->with('error', 'Usuario y/o contraseña incorrectos');
-        }
+        dd('Estoy en recuperar contraseña');
     }
 }

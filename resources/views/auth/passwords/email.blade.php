@@ -1,4 +1,40 @@
-@extends('layouts.app')
+@extends('layouts.auth')
+
+@section('title', '| Recuperar Contraseña')
+
+@section('styles')
+@endsection
+
+@section('content')
+    <div class="col-lg-6 d-none d-lg-block bg-password-image">
+        
+    </div>
+    <div class="col-lg-6">
+        <div class="p-5">
+            <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-2">¿Olvidaste tu contraseña?</h1>
+                <p class="mb-4">Nosotros te ayudaremos. Sólo ingresa el correo electrónico con el que te registraste y te enviaremos un link para que recuperes tu contraseña.</p>
+            </div>
+            {!! Form::open(['route' => 'forgot-password', 'method' => 'post', 'id' => 'formValidation', 'class' => 'user']) !!}
+                <div class="form-group">
+                    {!! Form::email('email', old('email'), ['id' => 'email', 'class' => 'form-control form-control-user', 'placeholder' => 'Ingresa tu Correo Electrónico', 'required', 'autofocus']) !!}
+                </div>
+                {!! Form::submit('Recuperar Contraseña', ['class' => 'btn btn-primary btn-user btn-block', 'id' => 'submit']) !!}
+            {!! Form::close() !!}
+            <hr>
+            <div class="text-center">
+                {!! link_to_route('login', '¿Ya tienes una cuenta? ¡Inicia Sesión!', [], ['class' => 'small']) !!}
+            </div>
+        </div>
+    </div>
+@endsection
+
+@section('scripts')
+@endsection
+
+
+
+{{-- @extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -45,3 +81,4 @@
     </div>
 </div>
 @endsection
+ --}}
