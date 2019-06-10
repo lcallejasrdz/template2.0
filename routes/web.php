@@ -36,4 +36,19 @@ Route::group(array('middleware' => 'sentinelAuth'), function () {
     Route::get('logout', 'AuthController@logout')->name('logout');
 
     Route::get('/home', 'HomeController@index')->name('home');
+
+    // Products
+    $route = 'products';
+    $controller = 'ProductController';
+    Route::group(array('prefix' => $route), function () use ($route, $controller) {
+        Route::get('deleted', $controller.'@getRestore')->name($route.'.deleted');
+        Route::patch('restore', $controller.'@postRestore')->name($route.'.restore');
+        Route::get('/', $controller.'@index')->name($route);
+        Route::delete('delete', $controller.'@destroy')->name($route.'.delete');
+        Route::get('create', $controller.'@create')->name($route.'.create');
+        Route::post('create', $controller.'@store')->name($route.'.store');
+        Route::get('{id}/edit', $controller.'@edit')->name($route.'.edit');
+        Route::put('{id}/edit', $controller.'@update')->name($route.'.update');
+        Route::get('{id}', $controller.'@show')->name($route.'.show');
+    });
 });

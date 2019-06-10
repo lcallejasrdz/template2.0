@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Http\Request\LoginRequest;
+use App\Http\Requests\LoginRequest;
 
 use Sentinel;
 use Redirect;

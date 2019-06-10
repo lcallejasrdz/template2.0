@@ -103,6 +103,7 @@ class MigrationCartalystSentinel extends Migration
             $table->integer('status_id')->nullable();
             $table->timestamp('last_login')->nullable();
             $table->timestamps();
+            $table->softDeletes();
 
             $table->engine = 'InnoDB';
             $table->unique('email');
