@@ -15,7 +15,7 @@
             </ul>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-light" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
           </div>
         </div>
       </div>
@@ -39,7 +39,7 @@
             <h4>{{ $message }}</h4>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-light" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
           </div>
         </div>
       </div>
@@ -63,7 +63,7 @@
             <h4>{{ $message }}</h4>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-light" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
           </div>
         </div>
       </div>
@@ -87,7 +87,7 @@
             <h4>{{ $message }}</h4>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-light" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
           </div>
         </div>
       </div>
@@ -111,7 +111,7 @@
             <h4>{{ $message }}</h4>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-light" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
           </div>
         </div>
       </div>
