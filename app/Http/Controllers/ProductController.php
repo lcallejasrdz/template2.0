@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Str as Str;
-use App\Http\Requests\ProductsRequest as MasterRequest;
+use App\Http\Requests\ProductRequest as MasterRequest;
 use App\Product as MasterModel;
 use App\ViewProduct as MasterViewModel;
 use Sentinel;
@@ -88,9 +88,10 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MasterRequest $request)
     {
         //
+        dd('Estoy en Store');
     }
 
     /**

@@ -10,7 +10,7 @@
             </div>
             <div class="modal-footer">
                 {!! Form::open(['route' => $active.'.delete', 'method' => 'delete']) !!}
-                    <button type="button" class="btn btn-default" data-dismiss="modal">{{ trans('strings.crud.cancel') }}</button>
+                    <button type="button" class="btn btn-light" data-dismiss="modal">{{ trans('strings.crud.cancel') }}</button>
                     {!! Form::hidden('id', null, ['id' => 'id_delete']) !!}
                     {!! Form::submit(trans('strings.crud.delete'), ['class' => 'btn btn-danger']) !!}
                 {!! Form::close() !!}

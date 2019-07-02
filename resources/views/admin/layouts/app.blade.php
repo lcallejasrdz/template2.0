@@ -26,6 +26,11 @@
     <!-- Custom styles for this template-->
     {{ Html::style('sbadmin/css/sb-admin-2.min.css') }}
 
+    {{-- FormValidation CSS file --}}
+    {{ Html::style('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css') }}
+    {{-- {{ Html::style('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css') }} --}}
+    {{ Html::style('assets/plugins/formvalidation/dist/css/formValidation.min.css') }}
+
     <script>
         var direction = "{{ env('APP_URL') }}";
     </script>
@@ -116,6 +121,12 @@
 
     <!-- Custom scripts for all pages-->
     {{ Html::script('sbadmin/js/sb-admin-2.min.js') }}
+
+    {{-- FormValidation plugin and the class supports validating Bootstrap form --}}
+    {{ Html::script("https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js") }}
+    {{ Html::script("assets/plugins/formvalidation/dist/js/FormValidation.min.js") }}
+    {{ Html::script("assets/plugins/formvalidation/dist/js/plugins/Bootstrap.min.js") }}
+    {{ Html::script("assets/plugins/formvalidation/dist/js/locales/es_ES.js") }}
 
     @yield('scripts')
 
