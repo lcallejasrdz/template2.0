@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b420dc703fdd80be02105c7aee4af604",
+    "content-hash": "fbb763368dd6a89fc1f902a2e59d6fb9",
     "packages": [
         {
             "name": "cartalyst/sentinel",
@@ -3076,16 +3076,16 @@
         },
         {
             "name": "yajra/laravel-datatables-oracle",
-            "version": "v9.3.0",
+            "version": "v9.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yajra/laravel-datatables.git",
-                "reference": "62f14b28ed15bb2c419489ff196fed3884ff8613"
+                "reference": "ac37f93026b6b607d1bb56789d147a4efd8d97d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/62f14b28ed15bb2c419489ff196fed3884ff8613",
-                "reference": "62f14b28ed15bb2c419489ff196fed3884ff8613",
+                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/ac37f93026b6b607d1bb56789d147a4efd8d97d9",
+                "reference": "ac37f93026b6b607d1bb56789d147a4efd8d97d9",
                 "shasum": ""
             },
             "require": {
@@ -3143,7 +3143,7 @@
                 "jquery",
                 "laravel"
             ],
-            "time": "2019-05-21T05:15:44+00:00"
+            "time": "2019-06-12T05:06:59+00:00"
         }
     ],
     "packages-dev": [

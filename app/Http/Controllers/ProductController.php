@@ -59,7 +59,22 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $active = $this->active;
+        $model = $this->model;
+        $view = 'index';
+        $word = trans('module_'.$this->active.'.module_title');
+        $columns = $this->columns();
+        $select = $this->select;
+        // 1 = (show, edit, delete)
+        // 2 = (show, edit)
+        // 3 = (show, delete)
+        // 4 = (edit, delete)
+        // 5 = (show)
+        // 6 = (edit)
+        // 7 = (delete)
+        $actions = 1;
+
+        return view('admin.index', compact($this->compact));
     }
 
     /**
@@ -90,8 +105,26 @@ class ProductController extends Controller
      */
     public function store(MasterRequest $request)
     {
-        //
-        dd('Estoy en Store');
+        /* Create Item */
+        if($this->request_whit == 1){
+            $item = MasterModel::create($request->all());
+        }else if($this->request_whit == 2){
+            $item = MasterModel::create($request->only($this->only));
+        }else{
+            $item = MasterModel::create($request->except($this->exeptions));
+        }
+
+        /* Extras */
+        // $item = $this->addExtras($request, $item);
+
+        /* Slug */
+        $item->slug = Str::slug($item->name);
+
+        if($item->save()){
+            return Redirect::route($this->active)->with('success', trans('module_'.$this->active.'.crud.create.success'));
+        }else{
+            return Redirect::back()->with('error', trans('module_'.$this->active.'.crud.create.error'));
+        }
     }
 
     /**
