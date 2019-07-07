@@ -1,4 +1,4 @@
-<div id="tab1" class="tab-pane fade active in">
+<div id="tab1" class="tab-pane active in">
     <div class="row">
         <div class="col-lg-12">
             <div class="panel">
@@ -9,26 +9,10 @@
                                 <table class="table table-bordered table-striped">
                                     <tr>
                                         <th>
-                                            {{ trans('validation.attributes.user_id') }}
+                                            {{ trans('validation.attributes.id') }}
                                         </th>
                                         <td>
-                                            {{ $item->user_id }}
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            {{ trans('validation.attributes.category_id') }}
-                                        </th>
-                                        <td>
-                                            {{ $item->category_id }}
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>
-                                            {{ trans('validation.attributes.subcategory_id') }}
-                                        </th>
-                                        <td>
-                                            {{ $item->subcategory_id }}
+                                            {{ $item->id }}
                                         </td>
                                     </tr>
                                     <tr>
@@ -55,24 +39,6 @@
                                             ${{ number_format($item->price, 2) }}
                                         </td>
                                     </tr>
-                                    @if($item->percent_buy_id != '' && $item->percent_buy_id != null)
-                                        <tr>
-                                            <th>
-                                                {{ trans('validation.attributes.percent_buy_id') }}
-                                            </th>
-                                            <td>
-                                                {{ $item->percent_buy_id }}
-                                            </td>
-                                        </tr>
-                                    @endif
-                                    <tr>
-                                        <th>
-                                            {{ trans('validation.attributes.product_unity_id') }}
-                                        </th>
-                                        <td>
-                                            {{ $item->product_unity_id }}
-                                        </td>
-                                    </tr>
                                 </table>
                             </div>
                         </div>
@@ -83,7 +49,7 @@
     </div>
 </div>
 
-<div id="tab2" class="tab-pane fade">
+{{-- <div id="tab2" class="tab-pane fade">
     <div class="row">
         <div class="col-lg-12">
             <div class="panel">
@@ -346,3 +312,4 @@
         </div>
     </div>
 </div>
+ --}}

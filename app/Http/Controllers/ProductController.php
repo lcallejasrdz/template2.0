@@ -135,7 +135,19 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $item = MasterViewModel::find($id);
+
+        $active = $this->active;
+        $model = null;
+        $view = null;
+        $columns = null;
+        $select = null;
+        $actions = null;
+        $word = trans('module_'.$this->active.'.module_title');
+
+        // Catalogs
+
+        return view('admin.show', compact($this->compact, 'item'));
     }
 
     /**
