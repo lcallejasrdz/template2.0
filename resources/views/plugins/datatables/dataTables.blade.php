@@ -19,7 +19,7 @@
 	  deferRender: true,
 	  ajax: {
 	    url: ajaxDirection,
-	    type: 'GET',
+	    type: 'POST',
 	    headers: {
 	        'X-CSRF-TOKEN': $('[name="_token"]').val(),
 	    }
