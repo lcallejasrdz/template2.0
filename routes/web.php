@@ -33,6 +33,11 @@ Route::group(array('middleware' => 'guest'), function () {
 });
 
 Route::group(array('middleware' => 'sentinelAuth'), function () {
+    // Datatables
+    Route::group(array('prefix' => 'admin'), function () {
+        Route::get('data', 'DataTablesController@data')->name('data');
+    });
+        
     Route::get('logout', 'AuthController@logout')->name('logout');
 
     Route::get('/home', 'HomeController@index')->name('home');

@@ -180,6 +180,9 @@ return [
         'subject'               => 'Subject',
         'message'               => 'Message',
         'price'                 => 'Price',
+        'id'                    => 'ID',
+        'created_at'            => 'Created At',
+        'actions'               => 'Actions',
     ],
 
 ];
