@@ -14,9 +14,7 @@
 @section('content')
 	{{ Form::token() }}
 	@include('admin.modules.datatable')
-	@if($actions == 1 || $actions == 3 || $actions == 4 || $actions == 7)
-		@include('admin.delete_modal')
-	@endif
+	@include('admin.delete_modal')
 @endsection
 
 @section('scripts')

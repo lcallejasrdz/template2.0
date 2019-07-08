@@ -38,7 +38,7 @@
                 <h6 class="collapse-header">Acciones:</h6>
                 <a class="collapse-item" href="{!! URL::route('products') !!}">Lista</a>
                 <a class="collapse-item" href="{!! URL::route('products.create') !!}">Nuevo</a>
-                <a class="collapse-item" href="#">Eliminados</a>
+                <a class="collapse-item" href="{!! URL::route('products.deleted') !!}">Eliminados</a>
             </div>
         </div>
     </li>

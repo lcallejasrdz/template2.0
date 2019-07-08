@@ -44,6 +44,11 @@ class ProductRequest extends FormRequest
                     'price' => 'required|numeric',
                 ];
             }
+            case 'DELETE': {
+                return [
+                    'id' => 'required',
+                ];
+            }
             case 'PATCH': {
                 return [];
             }

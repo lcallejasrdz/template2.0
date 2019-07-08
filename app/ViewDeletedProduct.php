@@ -22,6 +22,6 @@ class ViewDeletedProduct extends Model
 
     public function scopeData($query)
     {
-        return $query->get($this->select);
+        return $query->get();
     }
 }

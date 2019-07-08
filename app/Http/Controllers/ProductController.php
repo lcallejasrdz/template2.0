@@ -180,7 +180,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(MasterRequest $request, $id)
     {
         $item = MasterModel::find($id);
 
@@ -212,8 +212,48 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(MasterRequest $request)
     {
-        //
+        if(MasterModel::destroy($request->id)){
+            return Redirect::route($this->active)->with('success', trans('module_'.$this->active.'.crud.delete.success'));
+        }else{
+            return Redirect::back()->with('error', trans('module_'.$this->active.'.crud.delete.error'));
+        }
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getRestore()
+    {
+        $active = $this->active;
+        $model = $this->model;
+        $view = 'delete';
+        $word = trans('module_'.$this->active.'.module_title');
+        $columns = $this->columns();
+        $select = $this->select;
+        $actions = 1;
+
+        return view('admin.deleted', compact($this->compact));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function postRestore(Request $request)
+    {
+        $item = MasterModel::onlyTrashed()->find($request->id);
+
+        if($item->restore()){
+            return Redirect::route($this->active.'.deleted')->with('success', trans('module_'.$this->active.'.crud.restore.success'));
+        }else{
+            return Redirect::back()->with('error', trans('module_'.$this->active.'.crud.restore.error'));
+        }
     }
 }
