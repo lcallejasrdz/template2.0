@@ -158,7 +158,19 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item = MasterModel::find($id);
+
+        $active = $this->active;
+        $model = $this->model;
+        $view = null;
+        $columns = $this->columns();
+        $select = $this->select;
+        $actions = null;
+        $word = trans('module_'.$this->active.'.module_title');
+
+        // Catalogs
+
+        return view('admin.edit', compact($this->compact, 'item'));
     }
 
     /**
@@ -170,7 +182,28 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $item = MasterModel::find($id);
+
+        if($this->request_whit == 1){
+            $item->fill($request->all());
+        }else if($this->request_whit == 2){
+            $item->fill($request->only($this->only));
+        }else{
+            $item->fill($request->except($this->exeptions));
+        }
+
+        /*
+         * Extras
+         */
+
+        /* Slug */
+        $item->slug = Str::slug($item->name);
+
+        if($item->save()){
+            return Redirect::route($this->active)->with('success', trans('module_'.$this->active.'.crud.update.success'));
+        }else{
+            return Redirect::back()->with('error', trans('module_'.$this->active.'.crud.update.error'));
+        }
     }
 
     /**

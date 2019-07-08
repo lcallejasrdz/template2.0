@@ -1,14 +1,14 @@
-@extends('admin.layout.principal')
+@extends('admin.layouts.app')
 
-@section('title', '| '.trans('strings.crud.edit').' '.$word)
+@section('title', '| '.trans('strings.crud.add').' '.$word)
 
 @section('styles')
 @endsection
 
-@section('page-header', trans('strings.crud.edit').' '.$word)
+@section('page-header', $word)
 
 @section('panel-heading')
-	<i class="fa fa-pencil fa-fw"></i> {{ trans('strings.crud.edit') }} {{ $word }}
+	{{ trans('strings.crud.add') }} {{ $word }}
 @endsection
 
 @section('content')
@@ -16,32 +16,34 @@
 		<div class="col-sm-12">
 			{!! Form::model($item, ['route' => [$active.'.update', $item], 'method' => 'put', 'id' => 'formValidation', 'class' => 'form-horizontal', 'files' => true]) !!}
 				<div id="rootwizard">
-					<ul>
-						@if($active == 'sales' && Sentinel::getUser()->role_id == 4)
-							@include('admin.modules.'.$active.'.tabs-status')
-						@else
-							@include('admin.modules.'.$active.'.tabs')
-						@endif
-				    </ul>
-				    <br>
-				    <div class="tab-content">
-						@if($active == 'sales' && Sentinel::getUser()->role_id == 4)
-							@include('admin.modules.'.$active.'.panels-status')
-						@else
-							@include('admin.modules.'.$active.'.panels')
-						@endif
+				    <div class="form-group {{ $errors->first('name') ? 'is-invalid' : '' }}">
+				        {!! Form::label('name', trans('validation.attributes.name').' *', ['class' => 'col-sm-2 control-label']) !!}
+				        <div class="col-sm-12">
+				            {!! Form::text('name', old('name'), ['id' => 'name', 'class' => 'form-control', 'placeholder' => trans('validation.attributes.name')]) !!}
+				            <span class="help-block">{{ $errors->first('name', ':message') }}</span>
+				        </div>
+				    </div>
 
-				        <ul class="pager wizard">
-				            <li class="previous">
-				                {!! link_to('#', trans('strings.wizard.previous')) !!}
-				            </li>
-				            <li class="next">
-				                {!! link_to('#', trans('strings.wizard.next')) !!}
-				            </li>
-				            <li class="next finish" style="display:none;">
-				                {!! link_to('#', trans('strings.wizard.finish')) !!}
-				            </li>
-				        </ul>
+				    <div class="form-group {{ $errors->first('description') ? 'is-invalid' : '' }}">
+				        {!! Form::label('description', trans('validation.attributes.description').' *', ['class' => 'col-sm-2 control-label']) !!}
+				        <div class="col-sm-12">
+				            {!! Form::textarea('description', old('description'), ['id' => 'description', 'class' => 'form-control', 'placeholder' => trans('validation.attributes.description')]) !!}
+				            <span class="help-block">{{ $errors->first('description', ':message') }}</span>
+				        </div>
+				    </div>
+
+				    <div class="form-group {{ $errors->first('price') ? 'is-invalid' : '' }}">
+				        {!! Form::label('price', trans('validation.attributes.price').' *', ['class' => 'col-sm-2 control-label']) !!}
+				        <div class="col-sm-12">
+				            {!! Form::text('price', old('price'), ['id' => 'price', 'class' => 'form-control', 'placeholder' => trans('validation.attributes.price')]) !!}
+				            <span class="help-block">{{ $errors->first('price', ':message') }}</span>
+				        </div>
+				    </div>
+
+				    <div class="form-group">
+				        <div class="col-sm-12 text-right">
+				            {!! Form::submit('Actualizar', ['id' => 'submitButton', 'class' => 'btn btn-primary']) !!}
+				        </div>
 				    </div>
 				</div>
 			{!! Form::close() !!}
@@ -51,10 +53,4 @@
 
 @section('scripts')
 	@include('admin.modules.'.$active.'.formvalidation.edit')
-	{{ Html::script('assets/plugins/bootstrap-wizard/wizard.call.js') }}
-
-    {{-- Dynamic Select --}}
-    {{ Html::script("js/dynamic_select.js") }}
-    {{-- Dynamic Checkbox --}}
-    {{ Html::script("js/dynamic_checkbox.js") }}
 @endsection

@@ -1,3 +1,4 @@
+{{-- <div id="tab1" class="tab-pane fade active in"> --}}
 <div id="tab1" class="tab-pane active in">
     <div class="row">
         <div class="col-lg-12">
