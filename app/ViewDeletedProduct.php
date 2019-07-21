@@ -17,6 +17,7 @@ class ViewDeletedProduct extends Model
         'slug',
         'description',
         'price',
+        'inventory',
         'created_at'
     ];
 

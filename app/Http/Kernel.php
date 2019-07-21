@@ -64,6 +64,7 @@ class Kernel extends HttpKernel
 
         // Permissions
         'permissionsProduct' => \App\Http\Middleware\PermissionsProductMiddleware::class,
+        'permissionsPackage' => \App\Http\Middleware\PermissionsPackageMiddleware::class,
     ];
 
     /**

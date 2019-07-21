@@ -4,10 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-use Sentinel;
-use DB;
-
-class ViewProduct extends Model
+class ViewDeletedPackage extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -15,12 +12,11 @@ class ViewProduct extends Model
      * @var array
      */
     protected $fillable = [
-    	'id',
+        'id',
         'name',
         'slug',
         'description',
         'price',
-        'inventory',
         'created_at'
     ];
 

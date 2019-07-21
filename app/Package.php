@@ -3,11 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-use Sentinel;
-use DB;
-
-class ViewProduct extends Model
+class Package extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -15,17 +13,16 @@ class ViewProduct extends Model
      * @var array
      */
     protected $fillable = [
-    	'id',
         'name',
         'slug',
         'description',
-        'price',
-        'inventory',
-        'created_at'
+        'price'
     ];
 
-    public function scopeData($query)
-    {
-        return $query->get();
-    }
+    /**
+    * To allow soft deletes
+    */
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
 }

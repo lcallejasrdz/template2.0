@@ -1,7 +1,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{!! URL::route('home') !!}">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
@@ -13,7 +13,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{!! URL::route('home') !!}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Inicio</span>
         </a>
@@ -39,6 +39,22 @@
                 <a class="collapse-item" href="{!! URL::route('products') !!}">Lista</a>
                 <a class="collapse-item" href="{!! URL::route('products.create') !!}">Nuevo</a>
                 <a class="collapse-item" href="{!! URL::route('products.deleted') !!}">Eliminados</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePackage" aria-expanded="true" aria-controls="collapsePackage">
+            <i class="fas fa-fw fa-shopping-basket"></i>
+            <span>Paquetes</span>
+        </a>
+        <div id="collapsePackage" class="collapse" aria-labelledby="headingPackage" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Acciones:</h6>
+                <a class="collapse-item" href="{!! URL::route('packages') !!}">Lista</a>
+                <a class="collapse-item" href="{!! URL::route('packages.create') !!}">Nuevo</a>
+                <a class="collapse-item" href="{!! URL::route('packages.deleted') !!}">Eliminados</a>
             </div>
         </div>
     </li>

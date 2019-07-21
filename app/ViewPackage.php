@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Sentinel;
 use DB;
 
-class ViewProduct extends Model
+class ViewPackage extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -20,7 +20,6 @@ class ViewProduct extends Model
         'slug',
         'description',
         'price',
-        'inventory',
         'created_at'
     ];
 
