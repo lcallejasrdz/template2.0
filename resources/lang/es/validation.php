@@ -183,6 +183,7 @@ return [
         'id'                    => 'ID',
         'created_at'            => 'Creado',
         'actions'               => 'Acciones',
+        'inventory'             => 'Inventario',
     ],
 
 ];

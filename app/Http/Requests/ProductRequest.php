@@ -35,6 +35,7 @@ class ProductRequest extends FormRequest
                     'name' => 'required|min:3|max:255|unique:products,name',
                     'description' => 'required|min:3|max:1000',
                     'price' => 'required|numeric',
+                    'inventory' => 'required|integer',
                 ];
             }
             case 'PUT': {
@@ -42,6 +43,7 @@ class ProductRequest extends FormRequest
                     'name' => 'required|min:3|max:255|unique:products,name,'.$this->id,
                     'description' => 'required|min:3|max:1000',
                     'price' => 'required|numeric',
+                    'inventory' => 'required|integer',
                 ];
             }
             case 'DELETE': {

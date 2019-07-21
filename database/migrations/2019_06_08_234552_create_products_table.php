@@ -19,8 +19,11 @@ class CreateProductsTable extends Migration
             $table->string('slug')->nullable();
             $table->string('description', 1000);
             $table->float('price', 8, 2);
+            $table->integer('inventory');
             $table->timestamps();
             $table->softDeletes();
+
+            $table->index('name');
         });
     }
 

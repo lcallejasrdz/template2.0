@@ -40,6 +40,14 @@
                                             ${{ number_format($item->price, 2) }}
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <th>
+                                            {{ trans('validation.attributes.inventory') }}
+                                        </th>
+                                        <td>
+                                            {!! $item->inventory !!}
+                                        </td>
+                                    </tr>
                                 </table>
                             </div>
                         </div>

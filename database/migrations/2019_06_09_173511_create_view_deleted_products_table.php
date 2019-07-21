@@ -22,6 +22,7 @@ class CreateViewDeletedProductsTable extends Migration
                     products.slug,
                     products.description,
                     products.price,
+                    products.inventory,
                     products.created_at
 
                 FROM `products`

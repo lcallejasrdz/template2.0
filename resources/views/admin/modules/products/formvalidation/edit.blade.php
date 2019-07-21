@@ -31,6 +31,16 @@
                             }
                         }
                     },
+                    inventory: {
+                        validators: {
+                            notEmpty: {},
+                            integer: {
+                                // The default separators
+                                thousandsSeparator: '',
+                                decimalSeparator: '.'
+                            }
+                        }
+                    },
                 },
                 plugins: {
                     trigger: new FormValidation.plugins.Trigger(),
